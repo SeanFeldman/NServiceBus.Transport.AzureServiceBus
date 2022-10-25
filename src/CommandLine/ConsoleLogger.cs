@@ -8,9 +8,7 @@
         public ConsoleLogger(bool verbose) => this.verbose = verbose;
 
         public IDisposable BeginScope<TState>(TState state)
-        {
-            throw new NotImplementedException();
-        }
+            => throw new NotImplementedException();
 
         public bool IsEnabled(LogLevel logLevel) => true;
 
@@ -27,7 +25,7 @@
                 logStatement = $"{DateTime.UtcNow}: {logLevel} {logStatement}";
             }
 
-            Console.Error.WriteLine(logStatement);
+            Console.Out.WriteLine(logStatement);
         }
 
         readonly bool verbose;
